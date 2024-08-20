@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:rick_and_morty/data/models/character_model.dart';
+import 'package:rick_and_morty/data/models/character_table.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
@@ -43,17 +43,12 @@ class DatabaseHelper {
     ''');
   }
 
-  Future<int> insertFavorite(CharacterModel character) async {
+  Future<int> insertFavorite(CharacterTable character) async {
     final db = await database;
-    return await db!.insert(_tblFavorite, {
-      "id": character.id,
-      "name": character.name,
-      "image": character.image,
-      "originName": character.origin.name,
-    });
+    return await db!.insert(_tblFavorite, character.toMap());
   }
 
-  Future<int> removeWatchlistTv(CharacterModel character) async {
+  Future<int> removeFavorite(CharacterTable character) async {
     final db = await database;
     return await db!.delete(
       _tblFavorite,
@@ -62,7 +57,7 @@ class DatabaseHelper {
     );
   }
 
-  Future<List<Map<String, dynamic>>> getWatchlistTvs() async {
+  Future<List<Map<String, dynamic>>> getFavoriteCharacters() async {
     final db = await database;
     final List<Map<String, dynamic>> results = await db!.query(_tblFavorite);
 

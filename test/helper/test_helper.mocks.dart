@@ -13,6 +13,10 @@ import 'package:dio/src/options.dart' as _i2;
 import 'package:dio/src/response.dart' as _i6;
 import 'package:dio/src/transformer.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:rick_and_morty/data/datasources/local_datasource/db/database_helper.dart'
+    as _i10;
+import 'package:rick_and_morty/data/models/character_table.dart' as _i12;
+import 'package:sqflite/sqflite.dart' as _i11;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -783,4 +787,60 @@ class MockDio extends _i1.Mock implements _i7.Dio {
           ),
         )),
       ) as _i8.Future<_i6.Response<T>>);
+}
+
+/// A class which mocks [DatabaseHelper].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDatabaseHelper extends _i1.Mock implements _i10.DatabaseHelper {
+  MockDatabaseHelper() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Future<_i11.Database?> get database => (super.noSuchMethod(
+        Invocation.getter(#database),
+        returnValue: _i8.Future<_i11.Database?>.value(),
+      ) as _i8.Future<_i11.Database?>);
+
+  @override
+  _i8.Future<int> insertFavorite(_i12.CharacterTable? character) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #insertFavorite,
+          [character],
+        ),
+        returnValue: _i8.Future<int>.value(0),
+      ) as _i8.Future<int>);
+
+  @override
+  _i8.Future<int> removeFavorite(_i12.CharacterTable? character) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #removeFavorite,
+          [character],
+        ),
+        returnValue: _i8.Future<int>.value(0),
+      ) as _i8.Future<int>);
+
+  @override
+  _i8.Future<List<Map<String, dynamic>>> getFavoriteCharacters() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getFavoriteCharacters,
+          [],
+        ),
+        returnValue: _i8.Future<List<Map<String, dynamic>>>.value(
+            <Map<String, dynamic>>[]),
+      ) as _i8.Future<List<Map<String, dynamic>>>);
+
+  @override
+  _i8.Future<Map<String, dynamic>?> getCharacterById(int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCharacterById,
+          [id],
+        ),
+        returnValue: _i8.Future<Map<String, dynamic>?>.value(),
+      ) as _i8.Future<Map<String, dynamic>?>);
 }
