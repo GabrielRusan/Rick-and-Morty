@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:rick_and_morty/data/datasources/remote_datasource.dart';
+import 'package:rick_and_morty/data/datasources/remote_datasource/remote_datasource.dart';
 import 'package:rick_and_morty/utils/exception.dart';
 
-import '../../dummy_data/dummy_object.dart';
-import '../../helper/test_helper.mocks.dart';
-import '../../json_reader.dart';
+import '../../../dummy_data/dummy_object.dart';
+import '../../../helper/test_helper.mocks.dart';
+import '../../../json_reader.dart';
 
 void main() {
   late MockDio mockDio;
