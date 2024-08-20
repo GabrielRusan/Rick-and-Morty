@@ -10,7 +10,7 @@ class FavoriteCharacterBloc
     extends Bloc<FavoriteCharactersEvent, FavoriteCharacterState> {
   final GetFavoriteCharacters _getFavoriteCharacter;
   FavoriteCharacterBloc(this._getFavoriteCharacter)
-      : super(FavoriteCharacterEmpty()) {
+      : super(FavoriteCharacterLoading()) {
     on<FetchFavoriteCharacters>((event, emit) async {
       emit(FavoriteCharacterLoading());
 
@@ -18,11 +18,11 @@ class FavoriteCharacterBloc
 
       result.fold((failure) {
         emit(FavoriteCharacterError());
-      }, (tvList) {
-        if (tvList.isEmpty) {
+      }, (characters) {
+        if (characters.isEmpty) {
           emit(FavoriteCharacterEmpty());
         } else {
-          emit(FavoriteCharacterHasData(result: tvList));
+          emit(FavoriteCharacterHasData(result: characters));
         }
       });
     });
