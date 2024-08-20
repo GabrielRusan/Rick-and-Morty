@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty/constants/routes.dart';
 import 'package:rick_and_morty/presentation/blocs/all_characters_bloc/all_characters_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -94,6 +95,10 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 final character = state.characters[index];
                 return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.detailPage,
+                        arguments: character.id);
+                  },
                   child: Column(
                     children: [
                       Expanded(

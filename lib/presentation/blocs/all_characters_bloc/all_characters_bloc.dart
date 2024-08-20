@@ -10,7 +10,7 @@ part 'all_characters_state.dart';
 class AllCharactersBloc extends Bloc<AllCharactersEvent, AllCharactersState> {
   final GetAllCharacters _getAllCharacters;
   AllCharactersBloc(this._getAllCharacters)
-      : super(const AllCharactersState(status: AllCharactersStatus.failure)) {
+      : super(const AllCharactersState(status: AllCharactersStatus.initial)) {
     on<FetchAllCharacters>(_onFetchAllCharacters,
         transformer: throttleDroppable(const Duration(milliseconds: 350)));
   }
