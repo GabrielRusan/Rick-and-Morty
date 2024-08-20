@@ -51,9 +51,15 @@ class _HomePageState extends State<HomePage> {
             Icons.menu,
             color: Colors.white,
           ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.searchPage);
+                },
+                icon: const Icon(Icons.search))
+          ],
         ),
-        body:
-            Expanded(child: BlocBuilder<AllCharactersBloc, AllCharactersState>(
+        body: BlocBuilder<AllCharactersBloc, AllCharactersState>(
           builder: (context, state) {
             if (state.status == AllCharactersStatus.initial) {
               return const Center(
@@ -137,6 +143,6 @@ class _HomePageState extends State<HomePage> {
               itemCount: state.characters.length,
             );
           },
-        )));
+        ));
   }
 }

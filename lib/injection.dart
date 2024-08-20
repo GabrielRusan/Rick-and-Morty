@@ -16,6 +16,7 @@ import 'package:rick_and_morty/presentation/blocs/all_characters_bloc/all_charac
 import 'package:rick_and_morty/presentation/blocs/favorite_character_status_bloc/favorite_character_status_bloc.dart';
 import 'package:rick_and_morty/presentation/blocs/favorite_characters_bloc/favorite_characters_bloc.dart';
 import 'package:rick_and_morty/presentation/blocs/get_character_by_id_bloc/get_character_by_id_bloc.dart';
+import 'package:rick_and_morty/presentation/blocs/search_character_bloc/search_character_bloc.dart';
 
 final locator = GetIt.instance;
 
@@ -50,6 +51,7 @@ void init() {
   locator.registerFactory(() => AllCharactersBloc(locator()));
   locator.registerFactory(() => GetCharacterByIdBloc(locator()));
   locator.registerFactory(() => FavoriteCharacterBloc(locator()));
+  locator.registerFactory(() => SearchCharacterBloc(locator()));
   locator.registerFactory(
       () => FavoriteCharacterStatusBloc(locator(), locator(), locator()));
 }
