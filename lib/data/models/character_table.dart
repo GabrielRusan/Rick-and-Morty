@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:rick_and_morty/data/models/character_model.dart';
+import 'package:rick_and_morty/domain/entities/character.dart';
 
 class CharacterTable extends Equatable {
   final int id;
@@ -20,12 +22,32 @@ class CharacterTable extends Equatable {
         originName: map['originName'],
       );
 
+  factory CharacterTable.fromEntity(Character entity) => CharacterTable(
+        id: entity.id,
+        name: entity.name,
+        image: entity.image,
+        originName: entity.origin.name,
+      );
+
+  factory CharacterTable.fromModel(CharacterModel model) => CharacterTable(
+        id: model.id,
+        name: model.name,
+        image: model.image,
+        originName: model.origin.name,
+      );
+
   Map<String, dynamic> toMap() => {
         "id": id,
         "name": name,
         "image": image,
         "originName": originName,
       };
+
+  Character toEntity() => Character.favorite(
+      id: id,
+      name: name,
+      image: image,
+      origin: Location(name: originName, url: ''));
 
   @override
   List<Object?> get props => [id, name, image, originName];

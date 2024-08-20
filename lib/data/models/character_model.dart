@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:rick_and_morty/domain/entities/character.dart';
 
 class CharacterModel extends Equatable {
   final int id;
@@ -33,6 +34,18 @@ class CharacterModel extends Equatable {
         origin: Location.fromJson(json["origin"]),
         location: Location.fromJson(json["location"]),
         image: json["image"],
+      );
+
+  Character toEntity() => Character(
+        id: id,
+        name: name,
+        status: status,
+        species: species,
+        type: type,
+        gender: gender,
+        origin: origin,
+        location: location,
+        image: image,
       );
 
   @override
