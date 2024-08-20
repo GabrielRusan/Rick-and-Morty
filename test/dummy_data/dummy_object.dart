@@ -59,3 +59,27 @@ Character tCharacterFromDb = Character(
     origin: const Location(name: 'Earth (C-137)', url: ''),
     location: null,
     image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg');
+
+List<Character> tCharacterList = [tCharacter];
+List<Character> tCharacterList20 = [
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+  tCharacter,
+];
