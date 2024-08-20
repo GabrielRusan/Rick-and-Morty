@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    context.read<AllCharactersBloc>().add(FetchAllCharacters());
     super.initState();
     _scrollController.addListener(_onScroll);
   }
